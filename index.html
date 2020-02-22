@@ -293,13 +293,19 @@ const absolute = (num) => num > 0 ? num : -num // 2
         <section>
             <h1>CODE</h1>
             <pre><code class="hljs" data-trim>
-(def Button [props]
- (d/button {:style button-style}
-  (:text props)
-  (if (:loader? props)
-   (loadingSpinner {:color colors/blue}))))
-            </code></pre>
+                (defn simple-component []
+                  [:div
+                   [:p "I am a component!"]
+                   [:p.someclass
+                    "I have "
+                    [:span {:style {:color "red"}}
+                    " red "] "text."]])
+                            </code></pre>
             <h1 class="fragment">IS DATA</h1>
+            <div>
+                <p>I am a component!</p>
+                <p class="someclass">I have <span style="color:red"> red </span>text.</p>
+            </div>
             <aside class="notes">
                 - whole function body is list
                 - props are vector
@@ -308,6 +314,7 @@ const absolute = (num) => num > 0 ? num : -num // 2
                 - def is function call, if is function call
             </aside>
         </section>
+
         <section>
             <section>
                 <h2>Java Interop</h2>
@@ -404,6 +411,14 @@ Math.PI</code></pre>
         </section>
 
         <section>
+            <h1>protoREPL</h1>
+            <aside class="notes">
+                - sending code to app
+                - evaluate code in editor
+            </aside>
+        </section>
+
+        <section>
             <h1>Hiccup</h1>
             <section>
             <pre><code class="hljs Clojure" data-trim>
@@ -429,6 +444,31 @@ Math.PI</code></pre>
                 [:div {:id "email" :class "selected starred"} "..."]
                 [:div#email.selected.starred "..."]
 </code></pre>
+            </section>
+            <section>
+                <pre><code class="hljs Clojure" data-trim>
+                (defn simple-component []
+                  [:div
+                   [:p "I am a cogmponent!"]
+                   [:p.someclass
+                    "I have " [:strong "bold"]
+                    [:span {:style {:color "red"}} " and red "] "text."]])
+                            </code></pre>
+                <pre><code class="hljs html" data-trim>
+                <div>
+                  <p>I am a component!</p>
+                  <p class="someclass">
+                    I have <strong>bold</strong>
+                    <span style="color:red"> and red </span>text.
+                  </p>
+                </div>
+            </code></pre>
+                <div style="font-size: medium">
+                    <p>I am a component!</p>
+                    <p class="someclass">I have <strong>bold</strong><span style="color:red"> and red </span>text.</p>
+                </div>
+                <aside class="notes">
+                </aside>
             </section>
         </section>
 
@@ -461,30 +501,28 @@ Math.PI</code></pre>
         </section>
 
         <section>
-            <h2>datascript</h2>
+            <h2>Datascript</h2>
             <aside class="notes">
                 - in memory user side database
             </aside>
         </section>
 
         <section>
-            <h2>data-frisk-reagent</h2>
-            <aside class="notes"></aside>
+            <h2>Data frisk</h2>
+            <aside class="notes">
+            </aside>
         </section>
 
         <section>
-            <h2>data-frisk-reagent</h2>
-            <aside class="notes"></aside>
-        </section>
-
-        <section>
-            <h2>specter</h2>
-            <aside class="notes"></aside>
+            <h2>Specter</h2>
+            <aside class="notes">
+            </aside>
         </section>
 
         <section>
             <h2>Thank you</h2>
-            <aside class="notes"></aside>
+            <aside class="notes">
+            </aside>
         </section>
     </div>
 </div>
