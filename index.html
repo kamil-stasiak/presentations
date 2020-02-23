@@ -136,7 +136,7 @@ get-name
                 <pre><code class="hljs Clojure" data-trim>
                     ; ClojureScript
                     (1 2 3)
-                    ("1" :2  3 "four")
+                    ("1" :two  3 "four")
 </code></pre>
                 <pre><code class="hljs Java" data-trim>
                         // Java
@@ -156,7 +156,7 @@ get-name
                 <pre><code class="hljs Clojure" data-trim>
                     ; ClojureScript
                     [1 2 3]
-                    ["1" :2  3 "four"]
+                    ["1" :two  3 "four"]
 </code></pre>
                 <pre><code class="hljs Java" data-trim>
                         // Java
@@ -388,31 +388,51 @@ Math.PI</code></pre>
         </section>
 
         <section>
-            <h1>Fighweel</h1>
-            <aside class="notes">
-                - auto reload
-                - hot swapping part of code
-                - persistent state
+            <section>
+                <h1>Shadow-cljs</h1>
+                <pre><code class="hljs bash" data-trim>
+                npx shadow-cljs watch app
+            </code></pre>
+                <aside class="notes">
+                    - auto reload
+                    - hot swapping part of code
+                    - persistent state
 
-                - tests in new tab
-                - error when code is broken - reloading will break application
-                - syntax error -
-            </aside>
+                    - tests in new tab
+                    - error when code is broken - reloading will break application
+                    - syntax error
+                </aside>
+            </section>
+            <section data-markdown>
+                - Good configuration defaults
+                - npm integration
+                - Live Reload (CLJS + CSS)
+                - CLJS REPL
+            </section>
         </section>
 
         <section>
-            <h1>REPL</h1>
-            <aside class="notes">
-                - state changing
-                - updating function body (?)
+            <section>
+                <h1>REPL</h1>
+                <pre><code class="hljs Clojure" data-trim>
+                    (shadow.cljs.devtools.api/nrepl-select :app)
+                    (in-ns 'me.stasiak.starter.core)
+            </code></pre>
+                <aside class="notes">
+                    - state changing
+                    - updating function body (?)
 
-                REPL - connected to application state - view, change
-                it is possible to call a functions
-                changing styling etc
-                state is persistent
-                adding and changinga functions
-                https://calva.readthedocs.io/en/latest/paredit.html
-            </aside>
+                    REPL - connected to application state - view, change
+                    it is possible to call a functions
+                    changing styling etc
+                    state is persistent
+                    adding and changinga functions
+                    https://calva.readthedocs.io/en/latest/paredit.html
+                </aside>
+            </section>
+            <section>
+                <img src="repl.gif" alt="proto-repl">
+            </section>
         </section>
 
         <section>
