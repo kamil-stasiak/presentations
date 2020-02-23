@@ -238,19 +238,6 @@ print('Hello world')
             </section>
             <section>
                 <pre><code class="hljs Clojure" data-trim>
-; ClojureScript
-(+ 2 (* 3 3))
-</code></pre>
-                <pre><code class="hljs JavsScript" data-trim>
-// JavaScript
-2 + 3 * 3
-                </code></pre>
-                <aside class="notes">
-                    CLJS: // no additional rules to know // there is library for
-                </aside>
-            </section>
-            <section>
-                <pre><code class="hljs Clojure" data-trim>
 ; ClojureScript, 10 parenthesis
 (defn absolute [num]
  (if (< num 0)
@@ -275,6 +262,19 @@ function absolute(num) {
             <section>
                 <pre><code class="hljs Clojure" data-trim>
 ; ClojureScript
+(+ 2 (* 3 3))
+</code></pre>
+                <pre><code class="hljs JavsScript" data-trim>
+// JavaScript
+2 + 3 * 3
+                </code></pre>
+                <aside class="notes">
+                    CLJS: // no additional rules to know // there is library for
+                </aside>
+            </section>
+            <section>
+                <pre><code class="hljs Clojure" data-trim>
+; ClojureScript
 (defn absolute [num]
  (if (< num 0)
   (- num)
@@ -287,6 +287,11 @@ const absolute = (num) => num > 0 ? num : -num // 2
                 <aside class="notes">
                     - second function definition syntax, second flow control syntax
                 </aside>
+            </section>
+            <section>
+                <a href="https://xkcd.com/297/" style="display: block">Lisp cycles</a>
+
+                <img data-src="lisp_cycles.png" alt="xkcd" src="lisp_cycles.png">
             </section>
         </section>
 
