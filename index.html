@@ -388,6 +388,59 @@ Math.PI</code></pre>
         </section>
 
         <section>
+            <h1>Hiccup</h1>
+            <section>
+            <pre><code class="hljs Clojure" data-trim>
+                ; ClojureScript
+                [:a {:href "http://github.com"} "GitHub"]
+
+                [tag & body]
+                [tag attributes & body]
+</code></pre>
+                <pre><code class="hljs Html" data-trim>
+                <!-- html -->
+                <a href="http://github.com">GitHub</a>
+</code></pre>
+
+                <aside class="notes">
+                    - attributes is a map of key value pairs
+                </aside>
+            </section>
+            <section>
+
+            <pre><code class="hljs Clojure" data-trim>
+                ; ClojureScript
+                [:div {:id "email" :class "selected starred"} "..."]
+                [:div#email.selected.starred "..."]
+</code></pre>
+            </section>
+            <section>
+                <pre><code class="hljs Clojure" data-trim>
+                    [:div
+                     [:p "I am a cogmponent!"]
+                     [:p.someclass
+                      "I have " [:strong "bold"]
+                      [:span {:style {:color "red"}} " and red "] "text."]]
+                </code></pre>
+                <pre><code class="hljs html" data-trim>
+                <div>
+                  <p>I am a component!</p>
+                  <p class="someclass">
+                    I have <strong>bold</strong>
+                    <span style="color:red"> and red </span>text.
+                  </p>
+                </div>
+            </code></pre>
+                <div style="font-size: medium">
+                    <p>I am a component!</p>
+                    <p class="someclass">I have <strong>bold</strong><span style="color:red"> and red </span>text.</p>
+                </div>
+                <aside class="notes">
+                </aside>
+            </section>
+        </section>
+
+        <section>
             <section>
                 <h1>Shadow-cljs</h1>
                 <pre><code class="hljs bash" data-trim>
@@ -436,68 +489,6 @@ Math.PI</code></pre>
         </section>
 
         <section>
-            <h1>protoREPL</h1>
-            <aside class="notes">
-                - sending code to app
-                - evaluate code in editor
-            </aside>
-        </section>
-
-        <section>
-            <h1>Hiccup</h1>
-            <section>
-            <pre><code class="hljs Clojure" data-trim>
-                ; ClojureScript
-                [:a {:href "http://github.com"} "GitHub"]
-
-                [tag & body]
-                [tag attributes & body]
-</code></pre>
-                <pre><code class="hljs Html" data-trim>
-                <!-- html -->
-                <a href="http://github.com">GitHub</a>
-</code></pre>
-
-                <aside class="notes">
-                    - attributes is a map of key value pairs
-                </aside>
-            </section>
-            <section>
-
-            <pre><code class="hljs Clojure" data-trim>
-                ; ClojureScript
-                [:div {:id "email" :class "selected starred"} "..."]
-                [:div#email.selected.starred "..."]
-</code></pre>
-            </section>
-            <section>
-                <pre><code class="hljs Clojure" data-trim>
-                (defn simple-component []
-                  [:div
-                   [:p "I am a cogmponent!"]
-                   [:p.someclass
-                    "I have " [:strong "bold"]
-                    [:span {:style {:color "red"}} " and red "] "text."]])
-                            </code></pre>
-                <pre><code class="hljs html" data-trim>
-                <div>
-                  <p>I am a component!</p>
-                  <p class="someclass">
-                    I have <strong>bold</strong>
-                    <span style="color:red"> and red </span>text.
-                  </p>
-                </div>
-            </code></pre>
-                <div style="font-size: medium">
-                    <p>I am a component!</p>
-                    <p class="someclass">I have <strong>bold</strong><span style="color:red"> and red </span>text.</p>
-                </div>
-                <aside class="notes">
-                </aside>
-            </section>
-        </section>
-
-        <section>
             <h1>devcards</h1>
             <aside class="notes">
                 - state changing
@@ -512,6 +503,8 @@ Math.PI</code></pre>
                 - react-prop-types,
                 - light typing mechanism,
                 - argument validation
+
+                https://www.bradcypert.com/an-informal-guide-to-clojure-spec/
             </aside>
         </section>
 
