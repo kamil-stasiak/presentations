@@ -115,7 +115,7 @@ module.exports = grunt => {
 		zip: {
 			bundle: {
 				src: [
-					'index.html',
+					'clojurescript-promo.html',
 					'css/**',
 					'js/**',
 					'lib/**',

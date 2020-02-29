@@ -1,10 +1,17 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>reveal.js</title>
+    <title>reveal.js – The HTML Presentation Framework</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/reveal.css">
@@ -21,526 +28,22 @@
         link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
         document.getElementsByTagName('head')[0].appendChild(link);
     </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
 </head>
+
 <body>
+
 <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
     <div class="slides">
         <section>
-            <section>
-                <h2>Clojure(Script) promo</h2>
-                <p><small>Created by <a href="http://github.com/kamil-stasiak">Kamil Stasiak</a></small></p>
-                <aside class="notes">
-                </aside>
-            </section>
-            <section id="themes">
-                <h2>Themes</h2>
-                <p>
-                    <a href="#"
-                       onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black
-                        (default)</a> -
-                    <a href="#"
-                       onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a>
-                    -
-                    <a href="#"
-                       onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a>
-                    -
-                    <a href="#"
-                       onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a>
-                    -
-                    <a href="#"
-                       onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a>
-                    -
-                    <a href="#"
-                       onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a>
-                    <br>
-                    <a href="#"
-                       onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a>
-                    -
-                    <a href="#"
-                       onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a>
-                    -
-                    <a href="#"
-                       onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a>
-                    -
-                    <a href="#"
-                       onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a>
-                    -
-                    <a href="#"
-                       onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
-                </p>
-            </section>
-        </section>
-
-        <section>
-            <ul>
-                <li>Compile to Java Bytecode, JavaScript or CLR (.Net)</li>
-                <li>LISP dialect</li>
-                <li>Java / JavaScript interop</li>
-                <li>Immutable and mostly lazy</li>
-            </ul>
-            <aside class="notes">
-            </aside>
-        </section>
-
-        <section>
-            <section><h1>Syntax</h1></section>
-            <section>
-                <h2>Strings</h2>
-                <pre><code class="hljs Clojure" data-trim>
-                ; ClojurScript
-                "Hello world"
-                "My name
-                is bob" ; multiline string
-                </code></pre>
-                <pre><code class="hljs Java" data-trim>
-                // Java
-                "Hello world"
-                </code></pre>
-                <pre><code class="hljs JavaScript" data-trim>
-                // JavaScript
-                'Hello world'
-                "Hello world"
-                `Hello world`
-                </code></pre>
-            </section>
-            <section>
-                <h2>Keywords</h2>
-                <pre><code class="hljs Clojure" data-trim>
-:name
-{:name "Bob", :surname "Smith"} ; keys in maps
-</code></pre>
-                <aside class="notes">
-                    - Keywords are just scalars that evaluate to themselves
-                    - are useful where in other languages you might use little strings as identifiers
-                    (for example, as the keys in a hashmap).
-                    - like enums?
-                </aside>
-            </section>
-
-            <section>
-                <h2>Symbols</h2>
-                <pre><code class="hljs Clojure" data-trim>
-hello-world
-if
-main
-get-name
-</code></pre>
-                <aside class="notes">
-                    A symbol is an object that represents the name of something. The single quote mark is there to keep
-                    Clojure from trying to figure out to what the symbol refers When you want to represent the name of a
-                    thing --- rather than the value to which it refers --- you use a symbol
-                </aside>
-            </section>
-            <section>
-                <h3>List</h3>
-                <pre><code class="hljs Clojure" data-trim>
-                    ; ClojureScript
-                    (1 2 3)
-                    ("1" :two  3 "four")
-</code></pre>
-                <pre><code class="hljs Java" data-trim>
-                        // Java
-                        new LinkedList(1, 2, 3)
-                        Arrays.asList(1, 2, 3)
-</code></pre>
-                <pre><code class="hljs Kotiln" data-trim>
-                        // Kotlin
-                        listOf(1, 2, 3)
-</code></pre>
-                <aside class="notes">
-                    - good for adding to the front (prepending)
-                </aside>
-            </section>
-            <section>
-                <h3>Vectors</h3>
-                <pre><code class="hljs Clojure" data-trim>
-                    ; ClojureScript
-                    [1 2 3]
-                    ["1" :two  3 "four"]
-</code></pre>
-                <pre><code class="hljs Java" data-trim>
-                        // Java
-                        new ArrayList(1, 2, 3)
-</code></pre>
-                <pre><code class="hljs JavaScript" data-trim>
-                        // JavaScript
-                        [1, 2, 3]
-</code></pre>
-                <aside class="notes">
-                    - better for getting indexed elements (random access),
-                    - appending at the end
-                </aside>
-            </section>
-
-            <section>
-                <h2>Maps</h2>
-                <pre><code class="hljs Clojure" data-trim>
-                ; ClojureScript
-                { :name "Bob"
-                  "age" 12
-                  :greet #("Hello world")} ; function
-
-</code></pre>
-                <pre><code class="hljs JavaScript" data-trim>
-// JavaScript
-{ name: "Bob",
-  age: 12,
-  greet: () => "Hello world"}
-</code></pre>
-                <aside class="notes">
-                    value semantics, two lists are the same if they have the same elements
-                </aside>
-            </section>
-            <section>
-                <h2>Sets</h2>
-                <pre><code class="hljs Clojure" data-trim>
-; ClojureScript
-#{"Apple" "Orange" "Apple"} ; => #{"Apple" "Orange"}
-</code></pre>
-                <pre><code class="hljs Java" data-trim data-noescape>
-// Java
-Set set = new HashSet&lt;String&gt;();
-set.addAll("Apple", "Orange", "Apple")
-</code></pre>
-                <aside class="notes">
-                    list of unique things
-                </aside>
-            </section>
-            <section>
-                <h2>Data structures overview</h2>
-                <pre><code class="hljs Clojure" data-trim>
-                        ; ClojureScript
-                        (= (1 2 3) (1 2 3)) ; true
-</code></pre>
-                <pre><code class="hljs JavsScript" data-trim>
-// JavaScript
-[1 2 3] === [1 2 3] // false
-</code></pre>
-                <aside class="notes">
-                    value semantics, two lists are the same if they have the same elements
-                </aside>
-            </section>
-        </section>
-
-        <section>
-            <section>
-                <h2>Parenthesis</h2>
-            </section>
-            <section>
-                <pre><code class="hljs Clojure" data-trim>
-; ClojureScript
-(print "Hello world")
-</code></pre>
-                <pre><code class="hljs JavsScript" data-trim>
-// JavaScript
-print('Hello world')
-                </code></pre>
-            </section>
-            <section>
-                <pre><code class="hljs Clojure" data-trim>
-; ClojureScript, 10 parenthesis
-(defn absolute [num]
- (if (< num 0)
-  (- num)
- num))
-</code></pre>
-                <pre><code class="hljs JavaScript" data-trim>
-// JavaScript, 10 parenthesis
-function absolute(num) {
- if (num < 0) {
-  return -num;
- } else {
-  return num;
- }
-}
-                </code></pre>
-                <aside class="notes">
-                    - cljs - almost none syntax, only basic syntax
-                    - js - function definition syntax, flow control syntax
-                </aside>
-            </section>
-            <section>
-                <pre><code class="hljs Clojure" data-trim>
-; ClojureScript
-(+ 2 (* 3 3))
-</code></pre>
-                <pre><code class="hljs JavsScript" data-trim>
-// JavaScript
-2 + 3 * 3
-                </code></pre>
-                <aside class="notes">
-                    CLJS: // no additional rules to know // there is library for
-                </aside>
-            </section>
-            <section>
-                <pre><code class="hljs Clojure" data-trim>
-; ClojureScript
-(defn absolute [num]
- (if (< num 0)
-  (- num)
- num)) ; 10
-</code></pre>
-                <pre><code class="hljs JavsScript" data-trim>
-// JavaScript
-const absolute = (num) => num > 0 ? num : -num // 2
-                </code></pre>
-                <aside class="notes">
-                    - second function definition syntax, second flow control syntax
-                </aside>
-            </section>
-            <section>
-                <a href="https://xkcd.com/297/" style="display: block">Lisp cycles</a>
-
-                <img data-src="lisp_cycles.png" alt="xkcd" src="lisp_cycles.png">
-            </section>
-        </section>
-
-        <section>
-            <h1>CODE</h1>
-            <pre><code class="hljs" data-trim>
-                (defn simple-component []
-                  [:div
-                   [:p "I am a component!"]
-                   [:p.someclass
-                    "I have "
-                    [:span {:style {:color "red"}}
-                    " red "] "text."]])
-                            </code></pre>
-            <h1 class="fragment">IS DATA</h1>
-            <div>
-                <p>I am a component!</p>
-                <p class="someclass">I have <span style="color:red"> red </span>text.</p>
-            </div>
-            <aside class="notes">
-                - whole function body is list
-                - props are vector
-                - d/button function get map as input
-                - if you evaluate data as code list syntax is function call
-                - def is function call, if is function call
-            </aside>
-        </section>
-
-        <section>
-            <section>
-                <h2>Java Interop</h2>
-                <pre><code class="hljs Clojure" data-trim>
-; ClojureScript
-(.toUpperCase "fred") ; -> "FRED"
-(.getName String) ; -> "java.lang.String"
-(.-x (java.awt.Point. 1 2)) ; -> 1
-Math/PI ; -> 3.141592653589793
-</code></pre>
-                <pre><code class="hljs Java" data-trim>
-// Java
-"fred".toUpperCase() // -> "FRED"
-String.getName() // -> "java.lang.String"
-java.awt.Point(1, 2).x // -> 1
-Math.PI</code></pre>
-                <aside class="notes">
-                    CLJS: // no additional rules to know // there is library for
-                </aside>
-            </section>
-            <section>
-                <h2>Type Hints</h2>
-                <pre><code class="hljs Clojure" data-trim>
-                ; ClojureScript
-                (defn len [x]
-                 (.length x))
-
-                (defn len2 [^String x]
-                 (.length x))
-
-                user=> (time (reduce + (map len (repeat 1000000 "asdf"))))
-                "Elapsed time: 3007.198 msecs"
-                4000000
-
-                user=> (time (reduce + (map len2 (repeat 1000000 "asdf"))))
-                "Elapsed time: 308.045 msecs"
-                4000000
-</code></pre>
-                <aside class="notes">
-                    CLJS: // no additional rules to know // there is library for
-                </aside>
-            </section>
-            <section>
-                <h2>Warn on reflection</h2>
-                <pre><code class="hljs Clojure" data-trim>
-                    ; ClojureScript
-                    (set! *warn-on-reflection* true) ;-> true
-
-                    (defn foo [s] (.charAt s 1)) ; -> Reflection warning, line: 2 - call to charAt can't be resolved.
-
-                    (defn foo [^String s] (.charAt s 1))
-</code></pre>
-                <aside class="notes">
-                </aside>
-            </section>
-        </section>
-
-        <section>
-            <section>
-                <h2>JavaScript Interop</h2>
-                <a href="https://www.freecodecamp.org/news/here-is-a-quick-overview-of-the-similarities-and-differences-between-clojurescript-and-javascript-c5bd51c5c007/">A
-                    visual overview of the similarities and differences between ClojureScript and JavaScript</a>
-                <aside class="notes">
-                </aside>
-            </section>
-        </section>
-
-        <section>
-            <h1>Hiccup</h1>
-            <section>
-            <pre><code class="hljs Clojure" data-trim>
-                ; ClojureScript
-                [:a {:href "http://github.com"} "GitHub"]
-
-                [tag & body]
-                [tag attributes & body]
-</code></pre>
-                <pre><code class="hljs Html" data-trim>
-                <!-- html -->
-                <a href="http://github.com">GitHub</a>
-</code></pre>
-
-                <aside class="notes">
-                    - attributes is a map of key value pairs
-                </aside>
-            </section>
-            <section>
-
-            <pre><code class="hljs Clojure" data-trim>
-                ; ClojureScript
-                [:div {:id "email" :class "selected starred"} "..."]
-                [:div#email.selected.starred "..."]
-</code></pre>
-            </section>
-            <section>
-                <pre><code class="hljs Clojure" data-trim>
-                    [:div
-                     [:p "I am a cogmponent!"]
-                     [:p.someclass
-                      "I have " [:strong "bold"]
-                      [:span {:style {:color "red"}} " and red "] "text."]]
-                </code></pre>
-                <pre><code class="hljs html" data-trim>
-                <div>
-                  <p>I am a component!</p>
-                  <p class="someclass">
-                    I have <strong>bold</strong>
-                    <span style="color:red"> and red </span>text.
-                  </p>
-                </div>
-            </code></pre>
-                <div style="font-size: medium">
-                    <p>I am a component!</p>
-                    <p class="someclass">I have <strong>bold</strong><span style="color:red"> and red </span>text.</p>
-                </div>
-                <aside class="notes">
-                </aside>
-            </section>
-        </section>
-
-        <section>
-            <section>
-                <h1>Shadow-cljs</h1>
-                <pre><code class="hljs bash" data-trim>
-                npx shadow-cljs watch app
-            </code></pre>
-                <aside class="notes">
-                    - auto reload
-                    - hot swapping part of code
-                    - persistent state
-
-                    - tests in new tab
-                    - error when code is broken - reloading will break application
-                    - syntax error
-                </aside>
-            </section>
-            <section data-markdown>
-                - Good configuration defaults
-                - npm integration
-                - Live Reload (CLJS + CSS)
-                - CLJS REPL
-            </section>
-        </section>
-
-        <section>
-            <section>
-                <h1>REPL</h1>
-                <pre><code class="hljs Clojure" data-trim>
-                    (shadow.cljs.devtools.api/nrepl-select :app)
-                    (in-ns 'me.stasiak.starter.core)
-            </code></pre>
-                <aside class="notes">
-                    - state changing
-                    - updating function body (?)
-
-                    REPL - connected to application state - view, change
-                    it is possible to call a functions
-                    changing styling etc
-                    state is persistent
-                    adding and changinga functions
-                    https://calva.readthedocs.io/en/latest/paredit.html
-                </aside>
-            </section>
-            <section>
-                <img src="repl.gif" alt="proto-repl">
-            </section>
-        </section>
-
-        <section>
-            <h1>devcards</h1>
-            <aside class="notes">
-                - state changing
-                - updating function body (?)
-            </aside>
-        </section>
-
-        <section>
-            <h2>clojure specs</h2>
-            <aside class="notes">
-                - data validation,
-                - react-prop-types,
-                - light typing mechanism,
-                - argument validation
-
-                https://www.bradcypert.com/an-informal-guide-to-clojure-spec/
-            </aside>
-        </section>
-
-        <section>
-            <h2>core.async</h2>
-            <aside class="notes">
-                - async in clojure, like channgels from go, coroutines from kotlin
-                - added as library
-                - compatible with promises,
-                - rxjs
-            </aside>
-        </section>
-
-        <section>
-            <h2>Datascript</h2>
-            <aside class="notes">
-                - in memory user side database
-            </aside>
-        </section>
-
-        <section>
-            <h2>Data frisk</h2>
-            <aside class="notes">
-            </aside>
-        </section>
-
-        <section>
-            <h2>Specter</h2>
-            <aside class="notes">
-            </aside>
-        </section>
-
-        <section>
-            <h2>Thank you</h2>
-            <aside class="notes">
-            </aside>
+            <a href="http://www.kamil-stasiak.github.io/presetnations/cloujurescript-promo.html">
+                ClojureScript promo
+            </a>
         </section>
     </div>
 </div>
@@ -548,17 +51,36 @@ Math.PI</code></pre>
 <script src="js/reveal.js"></script>
 
 <script>
-    // More info about config & dependencies:
-    // - https://github.com/hakimel/reveal.js#configuration
-    // - https://github.com/hakimel/reveal.js#dependencies
+
+    // More info https://github.com/hakimel/reveal.js#configuration
     Reveal.initialize({
+        controls: true,
+        progress: true,
+        center: true,
+        hash: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
         dependencies: [
-            {src: 'plugin/markdown/marked.js'},
-            {src: 'plugin/markdown/markdown.js'},
-            {src: 'plugin/notes/notes.js', async: true},
-            {src: 'plugin/highlight/highlight.js', async: true}
+            {
+                src: 'plugin/markdown/marked.js', condition: function () {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            },
+            {
+                src: 'plugin/markdown/markdown.js', condition: function () {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            },
+            {src: 'plugin/highlight/highlight.js', async: true},
+            {src: 'plugin/search/search.js', async: true},
+            {src: 'plugin/zoom-js/zoom.js', async: true},
+            {src: 'plugin/notes/notes.js', async: true}
         ]
     });
+
 </script>
+
 </body>
 </html>
