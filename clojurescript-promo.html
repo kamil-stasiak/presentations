@@ -294,8 +294,9 @@ const absolute = (num) => num > 0 ? num : -num // 2
         </section>
 
         <section>
-            <h1>CODE</h1>
-            <pre><code class="hljs" data-trim>
+            <section>
+                <h1>CODE</h1>
+                <pre><code class="hljs" data-trim>
                 (defn print-vat [money]
                   (let [amount (:amount money)
                         currency (:currency money)
@@ -304,16 +305,16 @@ const absolute = (num) => num > 0 ? num : -num // 2
 
                 (print-vat {:amount 100 :currency "PLN"})
                             </code></pre>
-            <h1 class="fragment">IS DATA</h1>
-            <aside class="notes">
-                - whole function body is list
-                - props are vector
-                - d/button function get map as input
-                - if you evaluate data as code list syntax is function call
-                - def is function call, if is function call
-            </aside>
-        </section>
-        <section>
+                <h1 class="fragment">IS DATA</h1>
+                <aside class="notes">
+                    - whole function body is list
+                    - props are vector
+                    - d/button function get map as input
+                    - if you evaluate data as code list syntax is function call
+                    - def is function call, if is function call
+                </aside>
+            </section>
+            <section>
             <pre><code class="hljs" data-trim>
                 (defn print-vat [{:keys [amount currency]}]
                   (let [calculated (* amount 1.23)]
@@ -321,8 +322,8 @@ const absolute = (num) => num > 0 ? num : -num // 2
 
                 (print-vat {:amount 100 :currency "PLN"})
             </code></pre>
+            </section>
         </section>
-
         <section>
             <section>
                 <h2>Java Interop</h2>
