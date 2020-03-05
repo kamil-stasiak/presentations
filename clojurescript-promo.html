@@ -187,9 +187,7 @@ get-name
   age: 12,
   greet: () => "Hello world"}
 </code></pre>
-                <aside class="notes">
-                    value semantics, two lists are the same if they have the same elements
-                </aside>
+                <aside class="notes"></aside>
             </section>
             <section>
                 <h2>Sets</h2>
@@ -298,19 +296,15 @@ const absolute = (num) => num > 0 ? num : -num // 2
         <section>
             <h1>CODE</h1>
             <pre><code class="hljs" data-trim>
-                (defn simple-component []
-                  [:div
-                   [:p "I am a component!"]
-                   [:p.someclass
-                    "I have "
-                    [:span {:style {:color "red"}}
-                    " red "] "text."]])
+                (defn print-vat [money]
+                  (let [amount (:amount money)
+                        currency (:currency money)
+                        calculated (* amount 1.23)]
+                    (print (str calculated " " currency))))
+
+                (print-vat {:amount 100 :currency "PLN"})
                             </code></pre>
             <h1 class="fragment">IS DATA</h1>
-            <div>
-                <p>I am a component!</p>
-                <p class="someclass">I have <span style="color:red"> red </span>text.</p>
-            </div>
             <aside class="notes">
                 - whole function body is list
                 - props are vector
@@ -318,6 +312,15 @@ const absolute = (num) => num > 0 ? num : -num // 2
                 - if you evaluate data as code list syntax is function call
                 - def is function call, if is function call
             </aside>
+        </section>
+        <section>
+            <pre><code class="hljs" data-trim>
+                (defn print-vat [{:keys [amount currency]}]
+                  (let [calculated (* amount 1.23)]
+                    (print (str calculated " " currency))))
+
+                (print-vat {:amount 100 :currency "PLN"})
+            </code></pre>
         </section>
 
         <section>
@@ -337,7 +340,6 @@ String.getName() // -> "java.lang.String"
 java.awt.Point(1, 2).x // -> 1
 Math.PI</code></pre>
                 <aside class="notes">
-                    CLJS: // no additional rules to know // there is library for
                 </aside>
             </section>
             <section>
@@ -359,7 +361,6 @@ Math.PI</code></pre>
                 4000000
 </code></pre>
                 <aside class="notes">
-                    CLJS: // no additional rules to know // there is library for
                 </aside>
             </section>
             <section>
